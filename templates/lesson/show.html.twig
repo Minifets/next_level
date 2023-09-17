@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Next level - {{ stage.title }}{% endblock %}
+
+{% block content %}
+    {{ stage.lesson.content|raw }}
+
+    {% if stage.lesson.exam %}
+        {{ stage.lesson.exam.content|raw }}
+
+        <form action="{{ url('app_lesson_stage_pass') }}" method="post">
+            <label for="answer">Ответ</label>
+            <input id="answer" type="text" name="answer" value="">
+            <input type="submit" value="Отправить">
+        </form>
+    {% else %}
+        <a href="{{ url('app_lesson_stage_next') }}">К следующему уроку</a>
+    {% endif %}
+{% endblock %}
