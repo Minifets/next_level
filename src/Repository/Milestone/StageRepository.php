@@ -26,7 +26,9 @@ class StageRepository extends ServiceEntityRepository
         $queryBuilder = $this->createQueryBuilder('s');
 
         $queryBuilder
+            ->andWhere('s.milestone = :milestone')
             ->andWhere('s.stageOrder > :currentStageOrder')
+            ->setParameter('milestone', $currentStage->getMilestone())
             ->setParameter('currentStageOrder', $currentStage->getStageOrder())
             ->orderBy('s.stageOrder', 'ASC')
             ->setMaxResults(1)
