@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity\Milestone;
 
-use App\Repository\MilestoneRepository;
+use App\Repository\Milestone\MilestoneRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,24 +15,44 @@ class Milestone
     #[ORM\Column]
     private ?int $id = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $title = null;
+
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'nextMilestones')]
     private ?self $previous = null;
 
     #[ORM\OneToMany(mappedBy: 'previous', targetEntity: self::class)]
     private Collection $nextMilestones;
 
-    #[ORM\OneToMany(mappedBy: 'milestone', targetEntity: Subgoal::class)]
-    private Collection $subgoals;
+    #[ORM\OneToMany(mappedBy: 'milestone', targetEntity: Stage::class)]
+    private Collection $stages;
+
+    public function __toString(): string
+    {
+        return $this->title ?? '';
+    }
 
     public function __construct()
     {
         $this->nextMilestones = new ArrayCollection();
-        $this->subgoals = new ArrayCollection();
+        $this->stages = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): static
+    {
+        $this->title = $title;
+
+        return $this;
     }
 
     public function getPrevious(): ?self
@@ -78,29 +98,29 @@ class Milestone
     }
 
     /**
-     * @return Collection<int, Subgoal>
+     * @return Collection<int, Stage>
      */
-    public function getSubgoals(): Collection
+    public function getStages(): Collection
     {
-        return $this->subgoals;
+        return $this->stages;
     }
 
-    public function addSubgoal(Subgoal $subgoal): static
+    public function addStage(Stage $stage): static
     {
-        if (!$this->subgoals->contains($subgoal)) {
-            $this->subgoals->add($subgoal);
-            $subgoal->setMilestone($this);
+        if (!$this->stages->contains($stage)) {
+            $this->stages->add($stage);
+            $stage->setMilestone($this);
         }
 
         return $this;
     }
 
-    public function removeSubgoal(Subgoal $subgoal): static
+    public function removeStage(Stage $stage): static
     {
-        if ($this->subgoals->removeElement($subgoal)) {
+        if ($this->stages->removeElement($stage)) {
             // set the owning side to null (unless already changed)
-            if ($subgoal->getMilestone() === $this) {
-                $subgoal->setMilestone(null);
+            if ($stage->getMilestone() === $this) {
+                $stage->setMilestone(null);
             }
         }
 

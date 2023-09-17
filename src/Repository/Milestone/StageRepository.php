@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Milestone;
 
-use App\Entity\Subgoal;
+use App\Entity\Milestone\Stage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Subgoal>
+ * @extends ServiceEntityRepository<Stage>
  *
- * @method Subgoal|null find($id, $lockMode = null, $lockVersion = null)
- * @method Subgoal|null findOneBy(array $criteria, array $orderBy = null)
- * @method Subgoal[]    findAll()
- * @method Subgoal[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Stage|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Stage|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Stage[]    findAll()
+ * @method Stage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SubgoalRepository extends ServiceEntityRepository
+class StageRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Subgoal::class);
+        parent::__construct($registry, Stage::class);
     }
 
 //    /**
-//     * @return Subgoal[] Returns an array of Subgoal objects
+//     * @return Stage[] Returns an array of Stage objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class SubgoalRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Subgoal
+//    public function findOneBySomeField($value): ?Stage
 //    {
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')
