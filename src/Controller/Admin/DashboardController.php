@@ -6,6 +6,7 @@ use App\Entity\Lesson\Exam;
 use App\Entity\Lesson\Lesson;
 use App\Entity\Milestone\Milestone;
 use App\Entity\Milestone\Stage;
+use App\Entity\Progress\Achievement;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -33,6 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Milestones', 'fas fa-list', Milestone::class);
         yield MenuItem::linkToCrud('Stages', 'fas fa-list', Stage::class);
+        yield MenuItem::linkToCrud('Achievement', 'fas fa-list', Achievement::class);
         yield MenuItem::linkToCrud('Lessons', 'fas fa-list', Lesson::class);
         yield MenuItem::linkToCrud('Exams', 'fas fa-list', Exam::class);
     }

@@ -2,12 +2,18 @@
 
 namespace App\Entity\User;
 
+use App\Entity\Progress\Progress;
+use App\Entity\Progress\Reward;
 use App\Repository\User\StudentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: StudentRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Student implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -23,6 +29,17 @@ class Student implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?string $password = null;
+
+    #[ORM\OneToOne(mappedBy: 'stugent', cascade: ['persist', 'remove'])]
+    private ?Progress $progress = null;
+
+    #[ORM\OneToMany(mappedBy: 'student', targetEntity: Reward::class, orphanRemoval: true)]
+    private Collection $rewards;
+
+    public function __construct()
+    {
+        $this->rewards = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -92,5 +109,52 @@ class Student implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getProgress(): ?Progress
+    {
+        return $this->progress;
+    }
+
+    public function setProgress(Progress $progress): static
+    {
+        // set the owning side of the relation if necessary
+        if ($progress->getStugent() !== $this) {
+            $progress->setStugent($this);
+        }
+
+        $this->progress = $progress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reward>
+     */
+    public function getRewards(): Collection
+    {
+        return $this->rewards;
+    }
+
+    public function addReward(Reward $reward): static
+    {
+        if (!$this->rewards->contains($reward)) {
+            $this->rewards->add($reward);
+            $reward->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReward(Reward $reward): static
+    {
+        if ($this->rewards->removeElement($reward)) {
+            // set the owning side to null (unless already changed)
+            if ($reward->getStudent() === $this) {
+                $reward->setStudent(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity\Milestone;
 
+use App\Entity\Progress\Achievement;
 use App\Repository\Milestone\MilestoneRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -26,6 +27,9 @@ class Milestone
 
     #[ORM\OneToMany(mappedBy: 'milestone', targetEntity: Stage::class)]
     private Collection $stages;
+
+    #[ORM\OneToOne(mappedBy: 'milestone', cascade: ['persist', 'remove'])]
+    private ?Achievement $achievement = null;
 
     public function __toString(): string
     {
@@ -123,6 +127,23 @@ class Milestone
                 $stage->setMilestone(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAchievement(): ?Achievement
+    {
+        return $this->achievement;
+    }
+
+    public function setAchievement(Achievement $achievement): static
+    {
+        // set the owning side of the relation if necessary
+        if ($achievement->getMilestone() !== $this) {
+            $achievement->setMilestone($this);
+        }
+
+        $this->achievement = $achievement;
 
         return $this;
     }
