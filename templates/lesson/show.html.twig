@@ -3,6 +3,10 @@
 {% block title %}Next level - {{ stage.title }}{% endblock %}
 
 {% block content %}
+    <p>
+        {{ stage.title }}
+    </p>
+
     {{ stage.lesson.content|raw }}
 
     {% if stage.lesson.exam %}
