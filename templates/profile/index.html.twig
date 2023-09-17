@@ -52,7 +52,7 @@
                             <div class="space-y-2">
                                 <h3 class="dark:text-white text-2xl font-semibold"> {{ progress.stage.title }} </h3>
                                 <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]">
-                                    <a href="{{ url('app_homepage') }}">Продолжить...</a>
+                                    <a href="{{ url('app_lesson_stage', {stage: progress.stage.id}) }}">Продолжить...</a>
                                 </p>
                             </div>
                         </div>
