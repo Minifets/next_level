@@ -62,6 +62,12 @@ class HomepageController extends AbstractController
 
             $entityManager->persist($data);
             $entityManager->flush();
+
+            if ($username = $data->getUserName()) {
+                $this->addFlash('success', "Спасибо, $username, за ваш отзыв, вы нам очень помогли!");
+            } else {
+                $this->addFlash('success', 'Спасибо за ваш отзыв, вы нам очень помогли!');
+            }
         }
 
         return $this->redirectToRoute('app_thanks');

@@ -122,7 +122,11 @@
                         {{ form_widget(feedback.paid) }}
                     </div>
                     <label class="block mb-10">
-                        <span class="dark:text-white text-[25px] font-medium">Контактная информация (email, номер телефона)</span>
+                        <span class="dark:text-white text-[25px] font-medium">Ваше имя</span>
+                        {{ form_widget(feedback.userName) }}
+                    </label>
+                    <label class="block mb-10">
+                        <span class="dark:text-white text-[25px] font-medium">Контактная информация (номер телефона или email)</span>
                         {{ form_widget(feedback.contactInfo) }}
                     </label>
                     <label class="block mb-10">

@@ -22,6 +22,12 @@ class FeedbackType extends AbstractType
                 ],
                 'expanded' => true,
             ])
+            ->add('userName', TextType::class, [
+                'required' => false,
+                'attr' => [
+                    'class' => 'block w-full mt-3 p-3 dark:text-white hover:outline-none hover:border-0 focus:outline-none rounded dark:bg-[#0b0b0b5e] bg-gray',
+                ]
+            ])
             ->add('contactInfo', TextType::class, [
                 'required' => false,
                 'attr' => [

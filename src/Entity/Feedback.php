@@ -23,6 +23,9 @@ class Feedback
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $feedback = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $userName = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Feedback
     public function setFeedback(?string $feedback): static
     {
         $this->feedback = $feedback;
+
+        return $this;
+    }
+
+    public function getUserName(): ?string
+    {
+        return $this->userName;
+    }
+
+    public function setUserName(?string $userName): static
+    {
+        $this->userName = $userName;
 
         return $this;
     }

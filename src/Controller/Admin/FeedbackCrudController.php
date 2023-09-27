@@ -21,6 +21,7 @@ class FeedbackCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             BooleanField::new('paid'),
+            TextField::new('userName'),
             TextField::new('contactInfo'),
             TextareaField::new('feedback')
         ];

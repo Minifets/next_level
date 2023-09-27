@@ -9,7 +9,13 @@
     <!-- personal image -->
     <img class="rounded-full w-[250px] h-[250px] 2xl:w-[280px] 2xl:h-[280px]"
          src="{{ asset('images/about/avatar.png') }}" alt="about avatar" />
-    <h3 class="mt-6 mb-1 text-5xl font-semibold dark:text-white"> Спасибо за ваш отзыв, вы нам очень помогли </h3>
+    <h3 class="mt-6 mb-1 text-5xl font-semibold dark:text-white">
+    {% for message in app.flashes('success') %}
+        {{ message }}
+    {% else %}
+        Спасибо за ваш отзыв, вы нам очень помогли!
+    {% endfor %}
+    </h3>
 </div>
 <!-- Home page contant End -->
 {% endblock %}
