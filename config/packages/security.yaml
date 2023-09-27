@@ -18,9 +18,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        admin:
-            pattern: ^/admin
-            provider: app_admin_provider
         main:
             lazy: true
             provider: app_user_provider

@@ -7,5 +7,158 @@
 {% block mobile_menu_buttons %}{% endblock %}
 
 {% block content %}
-    Тестовая страница
+<!-- about page content start -->
+<div>
+    <div class="container lg:rounded-2xl bg-white dark:bg-[#111111] px-4 sm:px-5 md:px-10 lg:px-20">
+        <div data-aos="fade" class="aos-init aos-animate">
+            <div class="py-12">
+                <!-- about page title -->
+                <div class="grid grid-cols-12 md:gap-10 pt-4 md:pt-[40px] items-center">
+                    <div class="col-span-12 md:col-span-4">
+                        <!-- about me image -->
+                        <img class="w-full md:w-[330px] md:h-[400px] object-cover overflow-hidden rounded-[35px] mb-3 md:mb-0"
+                             src="{{ asset('images/homepage/lesson.png') }}" alt="about image" />
+                    </div>
+                    <div class="col-span-12 md:col-span-8 space-y-2.5">
+                        <!-- who am i content  -->
+                        <div class="md:mr-12 xl:mr-16">
+                            <h3 class="text-4xl font-medium dark:text-white mb-2.5"> Увлекательные уроки </h3>
+                            <p class="text-gray-lite dark:text-color-910 leading-7">
+                                Изучение английского языка
+                            </p>
+                            <p class="text-gray-lite leading-7 mt-2.5 dark:text-color-910">
+                                Изучение в игровой форме
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- whai i do contain -->
+            <div class="pb-12">
+                <h3 class="text-[35px] dark:text-white font-medium pb-5"> Возможности нашего сервиса </h3>
+                <div class="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="about-box dark:bg-transparent bg-[#fcf4ff]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> Ui/Ux Design </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+
+                    <div class="about-box dark:bg-transparent bg-[#fefaf0]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon1.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> App Development </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+
+                    <div class="about-box dark:bg-transparent bg-[#fcf4ff]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon2.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> Photography </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+
+                    <div class="about-box dark:bg-transparent bg-[#fff4f4]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon3.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> Photography </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+
+                    <div class="about-box dark:bg-transparent bg-[#fff0f8]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon4.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> Managment </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+
+                    <div class="about-box dark:bg-transparent bg-[#f3faff]">
+                        <img class="w-10 h-10 object-contain block" src="./images/icons/icon5.svg"
+                             alt="icon" />
+                        <div class="space-y-2">
+                            <h3 class="dark:text-white text-2xl font-semibold"> Web Development </h3>
+                            <p class="leading-8 text-gray-lite dark:text-[#A6A6A6]"> Lorem ipsum dolor
+                                sit amet, consectetuer adipiscing elit, sed diam euismod volutpat. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-12">
+                <a type="button" href="#ex1" rel="modal:open" class="dowanload-btn">Начать урок</a>
+            </div>
+
+            <!-- footer section start -->
+            <footer class="overflow-hidden rounded-b-2xl" style="background: transparent;">
+                <p class="text-center py-6 text-gray-lite dark:text-color-910">Next level © 2023 </p>
+            </footer>
+            <!-- footer section end -->
+        </div>
+    </div>
+</div>
+<!-- about section end  -->
+{% endblock %}
+
+{% block modal_menu %}
+<!-- modal  for item one start -->
+
+<div id="ex1" class="modal-container modal">
+    <div class="dark:scrollbarDark scrollbarLight overflow-y-scroll max-h-[60vh] lg:max-h-[80vh]">
+        <div class="pr-3 pb-2">
+            <h2 class="dark:text-white sm:text-3xl mt-2 font-medium"> Спасибо, за интерес к сервису </h2>
+            <p class="dark:text-white font-normal text-[15px] sm:text-sm my-4"> Проект пока находится на стадии разработки. </p>
+            <p class="dark:text-white font-normal text-[15px] sm:text-sm my-4"> Вы можете помочь в его развитии, ответив на пару вопросов. </p>
+        </div>
+
+        <div class="pt-3">
+            <div class="pr-3 pb-4">
+                <form class="w-full" action="{{ url('app_feedback') }}" method="post">
+                    <span class="dark:text-white text-[25px] font-medium">Вы готовы потратить 300 сом на получение доступа к урокам?</span>
+                    <div class="radio-toolbar mb-10">
+                        {{ form_widget(feedback.paid) }}
+                    </div>
+                    <label class="block mb-10">
+                        <span class="dark:text-white text-[25px] font-medium">Контактная информация (email, номер телефона)</span>
+                        {{ form_widget(feedback.contactInfo) }}
+                    </label>
+                    <label class="block mb-10">
+                        <span class="dark:text-white text-[25px] font-medium">Пожелания</span>
+                        {{ form_widget(feedback.feedback) }}
+                    </label>
+                    <button class="comment-btn" type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <a href="#close-modal" rel="modal:close" class="close bg-close-light dark:bg-close-dark ">Close</a>
+</div>
+<!-- modal  for item one end -->
+{% endblock %}
+
+{% block stylesheets %}
+    <!--=== jquary modal css ===-->
+    <link rel="stylesheet" href="{{ asset('css/vendor/jquery.modal.min.css') }}" />
+    {{ parent() }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/vendor/jquery.modal.min.js') }}"></script>
 {% endblock %}

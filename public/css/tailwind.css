@@ -704,7 +704,7 @@ video {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   padding-left: 1rem;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -752,7 +752,7 @@ video {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   padding-left: 1rem;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -855,7 +855,7 @@ video {
   --tw-gradient-to: rgb(250 82 82 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   --tw-gradient-to: #DD2476;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -913,7 +913,7 @@ video {
   --tw-gradient-to: rgb(250 82 82 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   --tw-gradient-to: #DD2476;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -969,6 +969,7 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
   transition-timing-function: linear;
+  max-width: fit-content;
 }
 
 .dowanload-btn:hover {
@@ -1191,7 +1192,7 @@ video {
   --tw-gradient-to: #DD2476;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -1248,7 +1249,7 @@ video {
   --tw-gradient-to: #DD2476;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .8125rem;
   font-weight: 500;
   --tw-text-opacity: 1;
@@ -2366,7 +2367,7 @@ video {
 }
 
 .font-poppins {
-  font-family: Poppins, sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .text-xl {
