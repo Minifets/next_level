@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Feedback;
 use App\Entity\Lesson\Exam;
 use App\Entity\Lesson\Lesson;
 use App\Entity\Milestone\Milestone;
@@ -37,5 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Achievement', 'fas fa-list', Achievement::class);
         yield MenuItem::linkToCrud('Lessons', 'fas fa-list', Lesson::class);
         yield MenuItem::linkToCrud('Exams', 'fas fa-list', Exam::class);
+        yield MenuItem::linkToCrud('Feedback', 'fas fa-list', Feedback::class);
     }
 }
