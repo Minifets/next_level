@@ -21,11 +21,11 @@
     <title>{% block title %}{% endblock %}</title>
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        /*if (localStorage.getItem("color-theme") === "dark" || (!("color-theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.documentElement.classList.add("dark");
         } else {
             document.documentElement.classList.remove("dark");
-        }
+        }*/
     </script>
 </head>
 
@@ -49,6 +49,7 @@
                             <img class="h-[26px] lg:h-[32px]" src="{{ asset('images/logo/logo.png') }}" alt="logo" />
                         </a>
                         <div class="flex items-center">
+                            {% block mobile_menu_buttons %}
                             <!-- light and dark mode button -->
                             <button id="theme-toggle-mobile" type="button"
                                     class="dark-light-btn lg:hidden w-[44px] h-[44px] ml-2">
@@ -60,10 +61,12 @@
                                 <i id="menu-toggle-open-icon" class="fa-solid fa-bars text-xl"></i>
                                 <i id="menu-toggle-close-icon" class="fa-solid fa-xmark text-xl hidden"></i>
                             </button>
+                            {% endblock %}
                         </div>
                     </div>
                 </div>
 
+                {% block main_menu %}
                 <!-- header items two for large screens -->
                 <nav class="hidden lg:block">
                     <ul class="flex my-12">
@@ -95,7 +98,9 @@
                         </li>
                     </ul>
                 </nav>
+                {% endblock %}
 
+                {% block mobile_menu %}
                 <!-- mobile menu start -->
                 <nav id="navbar" class="hidden lg:hidden">
                     <ul
@@ -121,6 +126,8 @@
                     </ul>
                 </nav>
                 <!-- mobile menu end -->
+                {% endblock %}
+
             </header>
             <!-- header  end -->
 
